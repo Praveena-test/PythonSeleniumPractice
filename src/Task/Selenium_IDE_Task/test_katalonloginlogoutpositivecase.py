@@ -10,25 +10,24 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
-
 class TestLoginlogoutpositivecase():
-    def setup_method(self, method):
-        self.driver = webdriver.Chrome()
-        self.vars = {}
-
-    def teardown_method(self, method):
-        self.driver.quit()
-
-    def test_loginlogoutpositivecase(self):
-        self.driver.get("https://katalon-demo-cura.herokuapp.com/")
-        self.driver.set_window_size(1296, 696)
-        self.driver.find_element(By.ID, "btn-make-appointment").click()
-        self.driver.find_element(By.ID, "txt-username").send_keys("John Doe")
-        self.driver.find_element(By.ID, "txt-password").send_keys("ThisIsNotAPassword")
-        self.driver.find_element(By.ID, "btn-login").click()
-        self.driver.find_element(By.ID, "menu-toggle").click()
-        self.driver.find_element(By.LINK_TEXT, "Logout").click()
-        self.driver.execute_script("window.scrollTo(0,253.3333282470703)")
-        self.driver.find_element(By.CSS_SELECTOR, "h1").click()
-        assert self.driver.find_element(By.CSS_SELECTOR, "h1").text == "CURA Healthcare Service"
-
+  def setup_method(self, method):
+    self.driver = webdriver.Chrome()
+    self.vars = {}
+  
+  def teardown_method(self, method):
+    self.driver.quit()
+  
+  def test_loginlogoutpositivecase(self):
+    self.driver.get("https://katalon-demo-cura.herokuapp.com/")
+    self.driver.set_window_size(1296, 696)
+    self.driver.find_element(By.ID, "btn-make-appointment").click()
+    self.driver.find_element(By.ID, "txt-username").send_keys("John Doe")
+    self.driver.find_element(By.ID, "txt-password").send_keys("ThisIsNotAPassword")
+    self.driver.find_element(By.ID, "btn-login").click()
+    self.driver.find_element(By.ID, "menu-toggle").click()
+    self.driver.find_element(By.LINK_TEXT, "Logout").click()
+    self.driver.execute_script("window.scrollTo(0,253.3333282470703)")
+    self.driver.find_element(By.CSS_SELECTOR, "h1").click()
+    assert self.driver.find_element(By.CSS_SELECTOR, "h1").text == "CURA Healthcare Service"
+  
